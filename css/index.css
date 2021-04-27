@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'SDSamliphopangche_Outline', serif;
+}
+
+header {
+    display: flex;
+    position: relative;
+    height: 60px;
+    background-color: #1d1d1d;
+    line-height: 60px;
+    color: white;
+}
+header > a {
+    font-size: 2em;
+    margin-left: 200px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+.header__menu {
+    display: flex;
+    position: absolute;
+    list-style: none;
+    right: 200px;
+}
+.header__menu > li:hover {
+    transform: scale(1.1);
+}
+.header__menu > li > a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+}
+.header__menu > li > a > div {
+    padding: 0 40px;
+}
+
+main {
+    min-height: calc(100vh - 160px);
+}
+
+footer {
+    height: 100px;
+    line-height: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.disable__select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
