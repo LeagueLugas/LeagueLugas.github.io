@@ -22,7 +22,7 @@ header {
     height: 60px;
     width: 100%;
     min-width: 1080px;
-    background-color: #404040;
+    background-color: #212121;
     line-height: 60px;
     color: white;
     top: -60px;
@@ -43,7 +43,7 @@ header > a {
     right: 200px;
 }
 .header__menu > li:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 .header__menu > li > a {
     font-size: 1.2em;
@@ -125,7 +125,7 @@ main {
     z-index: 2;
 }
 .main__menu > li:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 .main__menu > li > a {
     font-size: 1.2em;
@@ -205,13 +205,27 @@ main {
     100%{border-right: 2px solid #ffffff00}
 }
 .main__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     position: absolute;
     background-color: #f1f1f1;
     margin-top: calc(100vh - 80px);
     padding-bottom: 60px;
     width: 100%;
-    height: 100vh;
+    height: 920px;
     z-index: 2;
+}
+.main__content__section {
+    padding: 0 200px;
+    height: 230px;
+}
+.main__content__section > p {
+    font-size: 30px;
+}
+.main__content__section > div {
+    height: 200px;
+    border: 1px solid red;
 }
 
 footer {
