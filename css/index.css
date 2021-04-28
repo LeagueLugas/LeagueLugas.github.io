@@ -8,15 +8,26 @@
     padding: 0;
     margin: 0;
     font-family: 'SDSamliphopangche_Outline', serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    display: none;
 }
 
 header {
     display: flex;
-    position: relative;
+    position: fixed;
     height: 60px;
-    background-color: #1d1d1d;
+    width: 100%;
+    min-width: 1080px;
+    background-color: #404040;
     line-height: 60px;
     color: white;
+    top: -60px;
+    transition: 0.2s;
+    z-index: 3;
 }
 header > a {
     font-size: 2em;
@@ -44,15 +55,147 @@ header > a {
 }
 
 main {
-    min-height: calc(100vh - 160px);
+    display: block;
+    position: absolute;
+    width: 100%;
+    min-width: 1080px;
+    height: max-content;
+    padding-top: 20px;
+    background-color: #f1f1f1;
+}
+.main__banner {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.main__banner > img {
+    position: fixed;
+    z-index: 0;
+    margin-top: -20px;
+    height: 100%;
+    width: 100%;
+    min-width: 1080px;
+}
+.main__banner > div:last-child {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    z-index: 1;
+    width: 100%;
+    bottom: 50px;
+}
+.main__page_arrow {
+    width: fit-content;
+    min-width: unset;
+    height: 25px;
+    bottom: 50px;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.2s;
+}
+.main__page_arrow:hover {
+    transform: translateY(-10px);
+}
+.main__image__cover {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    margin-top: -20px;
+    background-color: #00000062;
+}
+.main__header {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+}
+.main__header > a {
+    margin-left: 200px;
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+    z-index: 2;
+}
+.main__menu {
+    display: flex;
+    position: absolute;
+    list-style: none;
+    right: 200px;
+    z-index: 2;
+}
+.main__menu > li:hover {
+    transform: scale(1.1);
+}
+.main__menu > li > a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+}
+.main__menu > li > a > div {
+    padding: 0 40px;
+}
+.main__banner_title {
+    display: grid;
+    position: fixed;
+    width: 100%;
+    color: white;
+    margin-top: 200px;
+    padding-left: 200px;
+    z-index: 1;
+}
+.main__banner_title > * {
+    font-family: none;
+    display: inline-block;
+    width: fit-content;
+    animation-name: cursor;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+}
+.main_banner_profile {
+    position: fixed;
+    right: 0;
+    z-index: 1;
+    height: 20%;
+    margin-top: 400px;
+    padding: 0 200px;
+}
+.main_banner_profile > div {
+    margin: 20px 0;
+    cursor: pointer;
+}
+#main__title {
+    font-size: 2.5em;
+}
+#main__title__sub {
+    display: none;
+    font-size: 1.5em;
+}
+@keyframes cursor{
+    0%{border-right: 2px solid #ffffff00}
+    50%{border-right: 2px solid #fff}
+    100%{border-right: 2px solid #ffffff00}
+}
+.main__content {
+    position: absolute;
+    background-color: #f1f1f1;
+    margin-top: calc(100vh - 60px);
+    width: 100%;
+    height: 1000px;
+    z-index: 2;
 }
 
 footer {
-    height: 100px;
-    line-height: 100px;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    bottom: -60px;
     background-color: black;
     color: white;
     text-align: center;
+    z-index: 3;
+    transition: 0.2s;
 }
 
 .disable__select {

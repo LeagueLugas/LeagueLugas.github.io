@@ -6,9 +6,10 @@
 	<title>ㄹㅇㅋㅋ</title>
 	<link rel="shortcut icon" href="./images/favicon.ico" />
 	<link rel="stylesheet" href="./css/index.css" />
+	<script src="./js/index.js"></script>
 </head>
 <body>
-	<header class="disable__select">
+	<header id="header" class="disable__select">
 		<a href="index.html">ㄹㅇㅋㅋ</a>
 		<ul class="header__menu">
 			<li><a href="#"><div>서버</div></a></li>
@@ -16,7 +17,36 @@
 			<li><a href="#"><div>흐에!</div></a></li>
 		</ul>
 	</header>
-	<main></main>
-	<footer class="disable__select">Made By Lugas For My Mentee~</footer>
+	<main id="main" class="disable__select">
+		<div class="main__banner">
+			<img src="images/background.jpg"  alt="background"/>
+			<div class="main__image__cover"></div>
+			<div>
+				<img class="main__page_arrow" src="./images/arrow.svg"  alt="" onclick="downPage(content.offsetTop)"/>
+			</div>
+		</div>
+		<div class="main__header">
+			<a href="index.html">ㄹㅇㅋㅋ</a>
+			<ul class="main__menu">
+				<li><a href="#"><div>서버</div></a></li>
+				<li><a href="#"><div>자바</div></a></li>
+				<li><a href="#"><div>흐에!</div></a></li>
+			</ul>
+		</div>
+		<div class="main__banner_title">
+			<h1 id="main__title">대덕소프트웨어마이스터고등학교 5기</h1>
+			<h2 id="main__title__sub">용성쓰 멘티들을 위한 기술 블로그~</h2>
+		</div>
+		<div class="main_banner_profile">
+			<div><img src="./images/facebook.png" alt="" ></div>
+			<div><img src="./images/github.png" alt="" ></div>
+			<div><img src="./images/email.png" alt="" ></div>
+			<div><img src="./images/phone.png" alt="" ></div>
+		</div>
+		<div id="content" class="main__content">
+
+		</div>
+		<footer id="footer" class="disable__select">Made By Lugas For My Mentee~</footer>
+	</main>
 </body>
 </html>
