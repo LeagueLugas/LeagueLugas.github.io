@@ -5,7 +5,7 @@ window.onload = () => {
             setTimeout(() => {
                 disableTypeAnimation("main__title");
                 typeTitle("main__title__sub");
-            }, 1000)
+            }, 500)
         })
 }
 window.onscroll = (e) => {
@@ -14,7 +14,7 @@ window.onscroll = (e) => {
     } else {
         document.getElementById("header").style.transform = ""
     }
-    if (window.pageYOffset >= window.innerHeight) {
+    if (window.pageYOffset >= 980) {
         document.getElementById("footer").style.transform = "translateY(-60px)"
     } else {
         document.getElementById("footer").style.transform = ""
@@ -30,11 +30,11 @@ const typeTitle = async (titleElementId) => {
     let typingInterval = setInterval(() => {
         titleElement.innerHTML = titleElement.innerHTML + title[titleIndex++];
         if (titleIndex === title.length) clearInterval(typingInterval);
-    }, 200);
+    }, 100);
     await new Promise((resolve) => {
         setTimeout(() => {
             resolve();
-        }, 200 * title.length);
+        }, 100 * title.length);
     });
 }
 
