@@ -1,4 +1,5 @@
 window.onload = () => {
+    contentOffset = document.getElementById("content").offsetTop;
     typeTitle("main__title")
         .then(() => {
             setTimeout(() => {
@@ -7,7 +8,7 @@ window.onload = () => {
             }, 1000)
         })
 }
-window.onscroll = () => {
+window.onscroll = (e) => {
     if (window.pageYOffset >= 60) {
         document.getElementById("header").style.transform = "translateY(60px)"
     } else {
@@ -43,4 +44,8 @@ const disableTypeAnimation = (elementId) => {
 
 const downPage = (position) => {
     window.scrollTo(0, position);
+}
+
+const movePage = (url) => {
+    window.open(url, '_blank');
 }

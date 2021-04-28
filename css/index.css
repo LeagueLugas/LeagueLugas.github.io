@@ -156,13 +156,41 @@ main {
     position: fixed;
     right: 0;
     z-index: 1;
-    height: 20%;
     margin-top: 400px;
     padding: 0 200px;
 }
 .main_banner_profile > div {
+    display: flex;
+    flex-direction: row-reverse;
     margin: 20px 0;
     cursor: pointer;
+    width: 100%;
+    color: white;
+    align-items: center;
+}
+.main_banner_profile > div > img {
+    height: fit-content;
+    width: 40px;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+.main_banner_profile > div > img:hover {
+    transform: scale(1.2);
+}
+.main_banner_profile > div > div {
+    overflow: hidden;
+    padding-left: 3px;
+}
+.main_banner_profile > div > img + div > div {
+    width: 100%;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateX(101%);
+    transition: 0.3s cubic-bezier(0, 0.82, 0.3, 1.02);
+}
+.main_banner_profile > div > img:hover + div > div {
+    opacity: 1;
+    transform: translateX(-1px);
 }
 #main__title {
     font-size: 2.5em;
@@ -179,9 +207,10 @@ main {
 .main__content {
     position: absolute;
     background-color: #f1f1f1;
-    margin-top: calc(100vh - 60px);
+    margin-top: calc(100vh - 80px);
+    padding-bottom: 60px;
     width: 100%;
-    height: 1000px;
+    height: 100vh;
     z-index: 2;
 }
 

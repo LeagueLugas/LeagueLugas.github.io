@@ -22,7 +22,7 @@
 			<img src="images/background.jpg"  alt="background"/>
 			<div class="main__image__cover"></div>
 			<div>
-				<img class="main__page_arrow" src="./images/arrow.svg"  alt="" onclick="downPage(content.offsetTop)"/>
+				<img class="main__page_arrow" src="./images/arrow.svg"  alt="" onclick="downPage(content.offsetTop-60)"/>
 			</div>
 		</div>
 		<div class="main__header">
@@ -38,10 +38,22 @@
 			<h2 id="main__title__sub">용성쓰 멘티들을 위한 기술 블로그~</h2>
 		</div>
 		<div class="main_banner_profile">
-			<div><img src="./images/facebook.png" alt="" ></div>
-			<div><img src="./images/github.png" alt="" ></div>
-			<div><img src="./images/email.png" alt="" ></div>
-			<div><img src="./images/phone.png" alt="" ></div>
+			<div>
+				<img src="./images/facebook.png" alt="" onclick="movePage('https://www.facebook.com/LeagueLugas')" />
+				<div><div>facebook.com/LeagueLugas</div></div>
+			</div>
+			<div>
+				<img src="./images/github.png" alt="" onclick="movePage('https://github.com/LeagueLugas')" />
+				<div><div>github.com/LeagueLugas</div></div>
+			</div>
+			<div>
+				<img src="./images/email.png" alt="" />
+				<div><div>leaguelugas@gmail.com</div></div>
+			</div>
+			<div>
+				<img src="./images/phone.png" alt="" />
+				<div><div>010 - 7737 - 9685</div></div>
+			</div>
 		</div>
 		<div id="content" class="main__content">
 
