@@ -260,6 +260,7 @@ main {
     align-items: center;
     margin: 5px;
     line-height: 20px;
+    text-align: center;
     word-break: break-word;
     overflow-wrap: break-word;
     -webkit-line-clamp: 2;
