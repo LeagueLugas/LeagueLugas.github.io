@@ -57,10 +57,30 @@ const sectionRequest = (section, limitFrom, limitTo) => {
         method: 'get',
         url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/post/' + section,
     }).then(data => {
-        data.data.reverse().slice(limitFrom, limitTo).forEach(post => {
+        let sectionElement = document.getElementById("section__" + section);
+        data.data.reverse().slice(limitFrom, limitTo).forEach(folder => {
             axios({
                 method: 'get',
-                url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/' + post.path
+                url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/' + folder.path
+            }).then(post => {
+                let indexFile = post.data.filter(p => p.name.endsWith(".md"))[0].name;
+                let imageFile = post.data.filter(p => p.name.startsWith("index_image"))[0].download_url;
+                let title = indexFile.substr(0, indexFile.lastIndexOf(".md"));
+
+                let div = document.createElement("div");
+                let a = document.createElement("a");
+                let img = document.createElement("img");
+                let p = document.createElement("p");
+
+                img.src = imageFile;
+                img.alt = title;
+                p.innerHTML = title;
+                a.href = "#";
+                div.className = "content__section";
+
+                a.append(img, p);
+                div.append(a);
+                sectionElement.append(div);
             })
         });
     });
