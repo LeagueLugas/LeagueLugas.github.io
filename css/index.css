@@ -94,7 +94,7 @@ main {
     transition: 0.2s;
 }
 .main__page_arrow:hover {
-    transform: translateY(-10px);
+    transform: scale(1.1);
 }
 .main__image__cover {
     position: fixed;
@@ -224,8 +224,45 @@ main {
     font-size: 30px;
 }
 .main__content__section > div {
+    display: flex;
     height: 200px;
-    border: 1px solid red;
+    padding: 10px;
+}
+.content__section {
+    height: 100%;
+    width: 250px;
+    margin-right: 5px;
+    background-color: white;
+    box-shadow: 0 10px 16px 0 #00000033, 0 6px 20px 0 #00000030;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 5px;
+}
+.content__section:hover {
+    transform: translateY(-5px);
+}
+.content__section > a {
+    text-decoration: none;
+    color: #050024;
+}
+.content__section > a > img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+.content__section > a > p {
+    display: -webkit-box;
+    height: 40px;
+    align-items: center;
+    margin: 5px;
+    line-height: 20px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 footer {

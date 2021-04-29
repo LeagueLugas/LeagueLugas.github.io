@@ -1,5 +1,7 @@
 window.onload = () => {
-    contentOffset = document.getElementById("content").offsetTop;
+    getIndexSections("section__java", "java");
+    getIndexSections("section__server", "server");
+    getIndexSections("section__etc", "etc");
     typeTitle("main__title")
         .then(() => {
             setTimeout(() => {
@@ -48,4 +50,18 @@ const downPage = (position) => {
 
 const movePage = (url) => {
     window.open(url, '_blank');
+}
+
+const sectionRequest = (section, limitFrom, limitTo) => {
+    axios({
+        method: 'get',
+        url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/post/' + section,
+    }).then(data => {
+        console.log(data.data.slice(limitFrom, limitTo))
+    });
+}
+
+const getIndexSections = (elementId, section) => {
+    let element = document.getElementById(elementId);
+    sectionRequest(section, 0, 4);
 }
