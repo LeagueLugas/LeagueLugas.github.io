@@ -16,7 +16,7 @@ window.onscroll = (e) => {
     } else {
         document.getElementById("header").style.transform = ""
     }
-    if (window.pageYOffset >= 980) {
+    if (window.pageYOffset >= 970) {
         document.getElementById("footer").style.transform = "translateY(-60px)"
     } else {
         document.getElementById("footer").style.transform = ""
