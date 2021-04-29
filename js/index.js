@@ -57,7 +57,12 @@ const sectionRequest = (section, limitFrom, limitTo) => {
         method: 'get',
         url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/post/' + section,
     }).then(data => {
-        console.log(data.data.slice(limitFrom, limitTo))
+        data.data.reverse().slice(limitFrom, limitTo).forEach(post => {
+            axios({
+                method: 'get',
+                url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/' + post.path
+            })
+        });
     });
 }
 
