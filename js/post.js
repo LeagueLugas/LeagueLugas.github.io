@@ -18,5 +18,5 @@ window.onload = () => {
 const request = axios.create({
     baseURL: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents',
     timeout: 1000,
-    headers: {'Authorization': 'token ${{ secrets.GH_TOKEN }}'}
+    headers: {'Authorization': 'token ${{secrets.GH_TOKEN}}'}
 });
