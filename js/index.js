@@ -52,17 +52,16 @@ const movePage = (url) => {
     window.open(url, '_blank');
 }
 
+const request = axios.create({
+    baseURL: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents',
+    timeout: 1000,
+    headers: {'Authorization': 'token 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'}
+});
 const sectionRequest = (section, limitFrom, limitTo) => {
-    axios({
-        method: 'get',
-        url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/post/' + section,
-    }).then(data => {
+    request.get('post/' + section).then(data => {
         let sectionElement = document.getElementById("section__" + section);
         data.data.reverse().slice(limitFrom, limitTo).forEach(folder => {
-            axios({
-                method: 'get',
-                url: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/' + folder.path
-            }).then(post => {
+            request.get(folder.path).then(post => {
                 let indexFile = post.data.filter(p => p.name.endsWith(".md"))[0].name;
                 let imageFile = post.data.filter(p => p.name.startsWith("index_image"))[0].download_url;
                 let title = indexFile.substr(0, indexFile.lastIndexOf(".md"));
