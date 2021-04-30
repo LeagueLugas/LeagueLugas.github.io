@@ -55,7 +55,7 @@ const movePage = (url) => {
 const request = axios.create({
     baseURL: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents',
     timeout: 1000,
-    headers: {'Authorization': 'token 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'}
+    headers: {'Authorization': 'token ${{secrets.GH_TOKEN}}'}
 });
 const sectionRequest = (section, limitFrom, limitTo) => {
     request.get('post/' + section).then(data => {
