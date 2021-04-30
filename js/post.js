@@ -43,7 +43,7 @@ window.onload = () => {
 
 const request = axios.create({
     timeout: 3000,
-    headers: {'Authorization': 'token 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'}
+    headers: {'Authorization': 'token ${{secrets.GH_TOKEN}}'}
 });
 
 const changeDarkMode = () => {
