@@ -65,6 +65,12 @@ header > p {
     color: white !important;
     transition: 0.3s;
 }
+.dark__mode code {
+    background-color: #5a5a5a !important;
+}
+.dark__mode pre {
+    background-color: #5a5a5a !important;
+}
 main {
     display: flex;
     justify-content: center;
@@ -129,7 +135,8 @@ main {
     padding: 16px;
     overflow: auto;
     line-height: 1.45;
-    background-color: #efefef;
+    background-color: #e0e0e0;
+    border: 1px solid #b5b5b5;
 }
 #main__content ol,
 #main__content ul {
@@ -154,7 +161,7 @@ main {
     padding: .2em .4em;
     margin: 0;
     font-size: 85%;
-    background-color: #efefef;
+    background-color: #e0e0e0;
     border-radius: 6px;
 }
 #main__content table td,
