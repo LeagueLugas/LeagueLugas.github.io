@@ -30,5 +30,10 @@ jobs:
           FILE_NAME: "ghtoken.txt"
           FILE_DATA: ${{ secrets.GH_TOKEN }}
       
-      - name: Run a one-line script
-        run: cat ghtoken.txt
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          BRANCH: master
+          FOLDER: build
+
