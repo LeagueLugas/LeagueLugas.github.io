@@ -1,22 +1,70 @@
+let darkMode;
 window.onload = () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let section = urlParams.get("section");
     let postId = urlParams.get("id");
-    request.get(`/post/${section}/${postId}`)
+    request.get(`https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents/post/${section}/${postId}`)
         .then(post => {
-            console.log(post.data)
-            let indexFile = post.data.filter(p => p.name.endsWith(".md"))[0].name;
+            let indexFile = post.data.filter(p => p.name.endsWith(".md"))[0];
             let imageFile = post.data.filter(p => p.name.startsWith("index_image"))[0].download_url;
-            let title = indexFile.substr(0, indexFile.lastIndexOf(".md"));
+            let title = indexFile.name.substr(0, indexFile.name.lastIndexOf(".md"));
 
             document.title = "ㄹㅇㅋㅋ | " + title;
             document.getElementById("header__title").innerHTML = section.toUpperCase() + " - " + title;
-        })
+
+            let requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+            fetch(indexFile.download_url, requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    let converter = new showdown.Converter();
+                    converter.setFlavor('github');
+                    converter.setOption("omitExtraWLInCodeBlocks", true);
+                    converter.setOption("parseImgDimensions", true);
+                    converter.setOption("tables", true);
+                    converter.setOption("ghMentions", true);
+                    converter.setOption("openLinksInNewWindow", true);
+                    converter.setOption("emoji", true);
+                    document.getElementById("main__content").innerHTML = converter.makeHtml(result);
+                })
+                .catch(error => location.href = "../");
+        });
+
+    darkMode = localStorage.getItem("dark_mode") === "true";
+    if (darkMode == null) {
+        localStorage.setItem("dark_mode", "false");
+        darkMode = false;
+    }
+    setDarkMode(darkMode);
 }
 
 const request = axios.create({
-    baseURL: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents',
-    timeout: 1000,
-    headers: {'Authorization': 'token ${{ secrets.GH_TOKEN }}'}
+    timeout: 3000,
+    headers: {'Authorization': 'token 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'}
 });
+
+const changeDarkMode = () => {
+    darkMode = !darkMode;
+    setDarkMode(darkMode);
+    localStorage.setItem("dark_mode", darkMode.toString());
+}
+const setDarkMode = (dark) => {
+    let body = document.getElementById("body");
+    let content = document.getElementById("main__content");
+    let button = document.getElementById("dark__mode");
+    let image = document.getElementById("dark__mode__image");
+    if (dark) {
+        body.style.backgroundColor = "#22272e";
+        content.className = "dark__mode";
+        button.style.backgroundColor = "#f1f1f1";
+        image.src = "../images/dark_mode_on.svg";
+    } else {
+        body.style.backgroundColor = "#f1f1f1";
+        content.className = "";
+        button.style.backgroundColor = "#22272e";
+        image.src = "../images/dark_mode_off.svg";
+    }
+}
