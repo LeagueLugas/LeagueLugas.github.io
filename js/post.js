@@ -68,10 +68,24 @@ const setDarkMode = (dark) => {
         content.className = "dark__mode";
         button.style.backgroundColor = "#f1f1f1";
         image.src = "../images/dark_mode_on.svg";
+        button.style.transform = "rotate(360deg)"
+        button.onmouseenter = () => {
+            button.style.transform = "rotate(360deg) scale(1.1)"
+        }
+        button.onmouseleave = () => {
+            button.style.transform = "rotate(360deg) scale(1.0)"
+        }
     } else {
         body.style.backgroundColor = "#f1f1f1";
         content.className = "";
         button.style.backgroundColor = "#22272e";
         image.src = "../images/dark_mode_off.svg";
+        button.style.transform = "rotate(0deg)"
+        button.onmouseenter = () => {
+            button.style.transform = "rotate(0deg) scale(1.1)"
+        }
+        button.onmouseleave = () => {
+            button.style.transform = "rotate(00deg) scale(1.0)"
+        }
     }
 }

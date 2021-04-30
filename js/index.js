@@ -20,7 +20,7 @@ window.onload = async () => {
                 disableTypeAnimation("main__title");
                 typeTitle("main__title__sub");
             }, 500)
-        })
+        });
 }
 window.onscroll = (e) => {
     if (window.pageYOffset >= 60) {

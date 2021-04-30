@@ -22,7 +22,7 @@ header {
     height: 60px;
     width: 100%;
     min-width: 1080px;
-    background-color: #212121;
+    background-color: #242526;
     line-height: 60px;
     color: white;
     top: -60px;
@@ -267,6 +267,25 @@ main {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#dark__mode {
+    display: flex;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #22272e;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 3;
+}
+#dark__mode:hover {
+    transform: scale(1.1);
 }
 
 footer {

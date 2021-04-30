@@ -25,7 +25,7 @@ header {
     height: 60px;
     width: 100%;
     min-width: 1080px;
-    background-color: #212121;
+    background-color: #242526;
     line-height: 60px;
     color: white;
     top: -60px;
@@ -62,7 +62,7 @@ header > p {
 }
 
 .dark__mode {
-    color: white !important;
+    color: #adbac7 !important;
     transition: 0.3s;
 }
 .dark__mode code {
@@ -197,4 +197,13 @@ main {
 }
 #dark__mode:hover {
     transform: scale(1.1);
+}
+
+.disable__select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
