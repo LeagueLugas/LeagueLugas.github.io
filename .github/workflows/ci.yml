@@ -31,9 +31,7 @@ jobs:
           FILE_DATA: ${{ secrets.GH_TOKEN }}
       
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: awb-pw/deploy-to-github-pages-action@1.1.1
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          BRANCH: master
-          FOLDER: ./
+          BUILD_PATH: .
 
