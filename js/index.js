@@ -9,7 +9,7 @@ window.onload = async () => {
     request = axios.create({
         baseURL: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents',
         timeout: 1000,
-        headers: {'Authorization': 'token ' + token}
+        // headers: {'Authorization': 'token ' + token}
     });
     getIndexSections("section__java", "java");
     getIndexSections("section__server", "server");

@@ -9,7 +9,7 @@ window.onload = async () => {
         .then(data => token = data);
     request = axios.create({
         timeout: 3000,
-        headers: {'Authorization': 'token ' + token}
+        // headers: {'Authorization': 'token ' + token}
     });
 
     const queryString = window.location.search;
