@@ -33,5 +33,5 @@ jobs:
       - name: Deploy
         uses: awb-pw/deploy-to-github-pages-action@1.1.1
         with:
-          BUILD_PATH: .
+          BUILD_PATH: ./
 
