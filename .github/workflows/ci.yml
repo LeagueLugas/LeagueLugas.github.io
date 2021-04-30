@@ -27,12 +27,13 @@ jobs:
 
       - uses: "finnp/create-file-action@master"
         env:
-          FILE_NAME: "ghtoken.txt"
+          FILE_NAME: "token/ghtoken.txt"
           FILE_DATA: ${{ secrets.GH_TOKEN }}
       
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: master # The branch the action should deploy to.
-          folder: ./
+          target-folder: ./
+          folder: ./token
 
