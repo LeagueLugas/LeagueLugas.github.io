@@ -25,7 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: Genetrate TOKEN
       - uses: "finnp/create-file-action@master"
         env:
           FILE_NAME: "ghtoken.txt"
           FILE_DATA: ${{ secrets.GH_TOKEN }}
+      
+      - name: Run a one-line script
+        run: ls
