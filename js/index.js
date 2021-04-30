@@ -1,4 +1,16 @@
-window.onload = () => {
+let request;
+window.onload = async () => {
+    let token;
+    await fetch("ghtoken.txt", {
+        method: 'GET',
+        redirect: 'follow'
+    }).then(response => response.text())
+        .then(data => token = data);
+    request = axios.create({
+        baseURL: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents',
+        timeout: 1000,
+        headers: {'Authorization': 'token ' + token}
+    });
     getIndexSections("section__java", "java");
     getIndexSections("section__server", "server");
     getIndexSections("section__etc", "etc");
@@ -52,11 +64,6 @@ const movePage = (url) => {
     window.open(url, '_blank');
 }
 
-const request = axios.create({
-    baseURL: 'https://api.github.com/repos/LeagueLugas/LeagueLugas.github.io/contents',
-    timeout: 1000,
-    headers: {'Authorization': 'token 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'}
-});
 const sectionRequest = (section, limitFrom, limitTo) => {
     request.get('post/' + section).then(data => {
         let sectionElement = document.getElementById("section__" + section);
@@ -86,6 +93,5 @@ const sectionRequest = (section, limitFrom, limitTo) => {
 }
 
 const getIndexSections = (elementId, section) => {
-    let element = document.getElementById(elementId);
     sectionRequest(section, 0, 4);
 }

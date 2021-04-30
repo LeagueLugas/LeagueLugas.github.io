@@ -1,5 +1,17 @@
 let darkMode;
-window.onload = () => {
+let request;
+window.onload = async () => {
+    let token;
+    await fetch("../ghtoken.txt", {
+        method: 'GET',
+        redirect: 'follow'
+    }).then(response => response.text())
+        .then(data => token = data);
+    request = axios.create({
+        timeout: 3000,
+        headers: {'Authorization': 'token ' + token}
+    });
+
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let section = urlParams.get("section");
@@ -40,11 +52,6 @@ window.onload = () => {
     }
     setDarkMode(darkMode);
 }
-
-const request = axios.create({
-    timeout: 3000,
-    headers: {'Authorization': 'token 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'}
-});
 
 const changeDarkMode = () => {
     darkMode = !darkMode;
