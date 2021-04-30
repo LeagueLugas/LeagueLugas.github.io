@@ -31,4 +31,4 @@ jobs:
           FILE_DATA: ${{ secrets.GH_TOKEN }}
       
       - name: Run a one-line script
-        run: ls
+        run: cat ghtoken.txt
